@@ -57,14 +57,15 @@ describe('Testes da Funcionalidade Produtos', () => {
             cy.request({
                 method: 'PUT', 
                 url: `produtos/${id}`,
-                headers: {authorization: token}, 
+                headers: {authorization: token},
                 body: 
                 {
-                    "nome": "Produto Editado 45642083",
+                    "nome": "Produto Editado 3231242",
                     "preco": 100,
                     "descricao": "Produto editado",
                     "quantidade": 100
-                  }
+                  },
+                  failOnStatusCode: false
             }).then(response => {
                 expect(response.body.message).to.equal('Registro alterado com sucesso')
             })
